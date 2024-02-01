@@ -31,7 +31,7 @@ const sendData = (body, onSuccess, onError) => {
       if (response.ok) {
         onSuccess();
       } else {
-        throw new Error('Ошибка HTTP: ' + response.status);
+        throw new Error(`Ошибка HTTP: ${response.status}`);
       }
     })
 
