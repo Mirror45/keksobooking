@@ -45,6 +45,24 @@ const fillElement = (
   }
 };
 
+const getGuestsNumber = (guests) => {
+  return guests % 10 === 1 && guests !== 11 ? `${guests} гостя` : `${guests} гостей`;
+};
+
+const getRoomsNumber = (rooms) => {
+  const reminder = rooms % 10;
+  if ((rooms >= 5 && rooms <= 20) || rooms === 0) {
+    return `${rooms} комнат`;
+  }
+  if (reminder === 1) {
+    return `${rooms} комната`;
+  }
+  if (reminder > 1 && reminder < 5) {
+    return `${rooms} комнаты`;
+  }
+  return `${rooms} комнат`;
+};
+
 const showAlert = (message) => {
   const alertContainer = document.createElement('div');
   alertContainer.style.zIndex = '100';
@@ -83,6 +101,8 @@ export {
   getFixedNumber,
   shufflArray,
   fillElement,
+  getGuestsNumber,
+  getRoomsNumber,
   showAlert,
   debounce
 };

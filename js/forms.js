@@ -28,11 +28,11 @@ const activateFilters = () => {
 };
 
 const forms = ['.ad-form', '.map__filters'].map((selector) => {
-  formElement.document.querySelector(`${selector}`);
+  const formElements = document.querySelector(`${selector}`);
   //Возвращаем новый объект: каждой формы, все поля форм, и класс disabled формы
   return {
     formElement,
-    partElements: formElement.querySelectorAll('fieldset, select'),
+    partElements: formElements.querySelectorAll('fieldset, select'),
     disabledClass: `${selector}--disabled`
   };
 });
