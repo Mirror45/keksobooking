@@ -11,7 +11,7 @@ const generateCard = (data) => {
   // Listing address
   cardElement.querySelector('.popup__text--address').textContent = offer.address;
   // Property price
-  cardElement.querySelector('.popup__text--price').textContent = `${offer.price} $/night`;
+  cardElement.querySelector('.popup__text--price').textContent = `${offer.price} ¥/night`;
   // Property type
   cardElement.querySelector('.popup__type').textContent = offer.type;
   // Number of rooms and guests
