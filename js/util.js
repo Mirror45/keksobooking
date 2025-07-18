@@ -34,9 +34,7 @@ const shufflArray = (array) => array.sort(() => Math.random() - 0.5);
 const fillElement = (
   element,
   data = [],
-  callback = (item) => {
-    item;
-  }
+  callback = (item) => item
 ) => {
   if (data.length && data.some((item) => item)) {
     element.innerHTML = data.map(callback).join('');
@@ -45,9 +43,7 @@ const fillElement = (
   }
 };
 
-const getGuestsNumber = (guests) => {
-  return guests % 10 === 1 && guests !== 11 ? `${guests} гостя` : `${guests} гостей`;
-};
+const getGuestsNumber = (guests) => guests % 10 === 1 && guests !== 11 ? `${guests} гостя` : `${guests} гостей`;
 
 const getRoomsNumber = (rooms) => {
   const reminder = rooms % 10;
