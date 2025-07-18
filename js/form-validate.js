@@ -39,18 +39,18 @@ const pristine = new Pristine(formElement, {
   errorTextClass: 'ad-form__element--error'
 });
 
-//---------Валидация Заголовок объявления------------//
+//---------Ad Title Validation------------//
 
-// Проверка поля заголовка объявления
+// Check the ad title field
 const checkStringLength = (value) => {
   const text = value.split(' ');
 
   return text.every((item) => item.length < 100);
 };
 
-//---------Валидация Типа жилья------------//
+//---------Property Type Validation------------//
 
-//Задаём минимальную цену - если выбран данный ${target}
+// Set minimum price if the selected ${target}
 typeFieldElement.addEventListener('change', (evt) => {
   for (const key in TYPE_FLATS) {
     if (evt.target.value === key) {
@@ -60,7 +60,7 @@ typeFieldElement.addEventListener('change', (evt) => {
   }
 });
 
-//Проверяем заданную ценну с текущей
+// Validate the entered price against the current one
 const checkPricePlaceholder = () => {
   const placeholder = Number(priceFieldElement.placeholder);
   priceFieldElement.value = parseInt(priceFieldElement.value, 10 || 0);
@@ -68,18 +68,19 @@ const checkPricePlaceholder = () => {
   return priceFieldElement.value >= placeholder && priceFieldElement.value <= limit;
 };
 
-// Получаем сообщение ошибки цены
+// Get the price error message
 const getPriceMessage = () => {
   if (priceFieldElement.value >= limit) {
-    return `Максимальная цена ${limit}`;
+    return `Maximum price is ${limit}`;
   }
 
-  return `Минимальная цена ${priceFieldElement.placeholder}`;
+  return `Minimum price is ${priceFieldElement.placeholder}`;
 };
 
-//---------Валидация Гостей и Комнат------------//
 
-// Проверка на количество гостей
+//---------Guests and Rooms Validation------------//
+
+// Check the number of guests
 const validCapacity = () => {
   if (RoomToGuests[roomsFieldElement.value].includes(capacityFieldElement.value)) {
     return true;
@@ -87,28 +88,28 @@ const validCapacity = () => {
   return false;
 };
 
-// Формируем сообщение в зависимости от выбора комнат
+// Generate the message depending on the selected number of rooms
 const validCapacityMessage = () => {
   const value = roomsFieldElement.value;
 
   switch (value) {
     case '1':
-      return `${value} комната для ${value} гостя`;
+      return `${value} room for ${value} guest`;
 
     case '2':
-      return `${value} ${value === '2' ? 'комнаты' : 'комнат'} для ${value} ${value === '2' ? 'гостей' : 'гостя'}`;
+      return `${value} ${value === '2' ? 'rooms' : 'room'} for ${value} guests`;
 
     case '3':
-      return `${value} ${value === '3' ? 'комнаты' : 'комнат'} для ${value} ${value === '3' ? 'гостей' : 'гостя'}`;
+      return `${value} ${value === '3' ? 'rooms' : 'room'} for ${value} guests`;
 
     case '100':
-      return `${value} комнат не для гостей.`;
+      return `${value} rooms not for guests.`;
   }
 };
 
-//---------Валидация Время заезда------------//
+//---------Check-in Time Validation------------//
 
-//Проверяем время заезда между собой
+// Compare check-in and check-out times
 timeFieldset.addEventListener('change', (evt) => {
   if (evt.target.value !== timeIn.value) {
     timeIn.value = evt.target.value;
@@ -119,13 +120,13 @@ timeFieldset.addEventListener('change', (evt) => {
   }
 });
 
-// Валидация заголовка
-pristine.addValidator(titleFieldElement, checkStringLength, 'Максимальная длина 100 символов.');
+// Title validation
+pristine.addValidator(titleFieldElement, checkStringLength, 'Maximum length is 100 characters.');
 
-// Валидация цены
+// Price validation
 pristine.addValidator(priceFieldElement, checkPricePlaceholder, getPriceMessage);
 
-// Валидация гостей и комнат
+// Guests and rooms validation
 pristine.addValidator(roomsFieldElement, validCapacity, validCapacityMessage);
 
 capacityFieldElement.addEventListener('change', () => {
@@ -133,13 +134,13 @@ capacityFieldElement.addEventListener('change', () => {
 });
 
 const initAdForm = () => {
-  //Отправка формы
+  // Form submission
   formElement.addEventListener('submit', (evt) => {
     const valid = pristine.validate();
     evt.preventDefault();
 
     if (valid) {
-      //Выполняем запрос sendData(с аргументами)
+      // Execute the request sendData(with arguments)
       return sendData(
         new FormData(evt.target),
         () => showSuccess(),
@@ -148,7 +149,7 @@ const initAdForm = () => {
     }
   });
 
-  //Очищаем форму
+  // Reset the form
   formElement.addEventListener('reset', () => {
     pristine.reset();
     resetMap();

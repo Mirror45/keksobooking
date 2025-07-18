@@ -1,4 +1,4 @@
-const OFFERS = ['Уютная', 'Ретро стиль', 'Новый лофт', 'Евро стандарт', 'Фаворит'];
+const OFFERS = ['Cozy', 'Retro style', 'New loft', 'Euro standard', 'Favorite'];
 
 const LOCATION = {
   MIN_LAT: 35.65,
@@ -14,28 +14,28 @@ const PRICES = {
 
 const TYPE_FLATS = {
   flat: {
-    name: 'Квартира',
-    price: 1000
+    name: 'Apartment',
+    price: 100
   },
 
   bungalow: {
-    name: 'Бунгало',
+    name: 'Bungalow',
     price: 0
   },
 
   house: {
-    name: 'Дом',
-    price: 5000
+    name: 'House',
+    price: 500
   },
 
   palace: {
-    name: 'Дворец',
-    price: 10000
+    name: 'Palace',
+    price: 1000
   },
 
   hotel: {
-    name: 'Отель',
-    price: 3000
+    name: 'Hotel',
+    price: 300
   }
 };
 
@@ -51,14 +51,14 @@ const GUESTS = {
 
 const CHECK_IN_OUT = ['12:00', '13:00', '14:00'];
 
-const FEATURES = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'];
+const FEATURES = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'air conditioning'];
 
 const DESCRIPTIONS = [
-  'Бронирование без предоплаты',
-  'Можно с детьми',
-  'Собственный паркинг с лаунж зоной',
-  'Детский парк и комната для детей',
-  'Завтрак и Обед включены'
+  'Booking without prepayment',
+  'Children allowed',
+  'Private parking with lounge area',
+  'Children’s park and playroom',
+  'Breakfast and lunch included'
 ];
 
 const PHOTOS = [

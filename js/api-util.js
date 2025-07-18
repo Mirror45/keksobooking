@@ -6,27 +6,27 @@ const body = document.querySelector('body');
 
 let cloneElement;
 
-//Нажатие на кнопку "Escape".
+// Pressing the "Escape" key.
 const isEscapeKey = (evt) => evt.key === 'Escape';
 
-//Покаываеи окно успешной отправки
+// Show the success submission window.
 const showSuccess = () => {
   cloneElement = templateSuccess.cloneNode(true);
 
   body.append(cloneElement);
-  //очищаем поля форм
+  // Clear the form fields.
   forms.forEach(({ formElement }) => formElement.reset());
 
   document.addEventListener('keydown', closeOnEsc);
   cloneElement.addEventListener('click', () => {
-    //проверяем если елемент есть - удаляем
+    // Check if the element exists — remove it.
     if (cloneElement) {
       cloneElement.remove();
     }
   });
 };
 
-//Покаываеи окно если отправка не успешна
+// Show the window if submission fails.
 const showError = () => {
   cloneElement = templateError.cloneNode(true);
   const errorButton = cloneElement.querySelector('.error__button');
@@ -41,7 +41,7 @@ const showError = () => {
   });
 };
 
-//Удаляем блок на нажатие 'Esc'
+// Remove the block on 'Esc' key press.
 function closeOnEsc(evt) {
   if (isEscapeKey(evt)) {
     cloneElement.remove();

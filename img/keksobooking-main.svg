@@ -1,0 +1,8 @@
+<svg width="200" height="60" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title { font: bold 24px sans-serif; fill: black; }
+    .subtitle { font: 16px sans-serif; fill: gray; }
+  </style>
+  <text x="50%" y="20" class="title" dominant-baseline="hanging" text-anchor="middle">KEKSBOOKING</text>
+  <text x="50%" y="45" class="subtitle" dominant-baseline="hanging" text-anchor="middle">Cookies Nearby</text>
+</svg>

@@ -26,7 +26,7 @@ const housePrice = {
 
 const DEBOUNCE_TIMER = 500;
 
-//Правила где мы сравниваем значение кнопки с передаваемым объектом
+// Rules where we compare the button value with the passed object
 const filterRules = {
   'housing-type': ({ type }, value) => value === type,
   'housing-price': ({ price }, value) => price >= housePrice[value].from && price < housePrice[value].to,

@@ -10,6 +10,6 @@ const preview = document.querySelector('.ad-form-header__preview img');
 initImageControl(choser, preview);
 
 getData((data) => {
-  initMap(data.slice(0, 10));
+  initMap(data.slice(0, 20));
   initAdForm();
 });

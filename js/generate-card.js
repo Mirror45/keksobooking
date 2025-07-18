@@ -6,27 +6,28 @@ const generateCard = (data) => {
   const { author, offer } = data;
   const cardElement = cardTemplateElement.cloneNode(true);
 
-  // Заголовок объявления
+  // Listing title
   cardElement.querySelector('.popup__title').textContent = offer.title;
-  // Адрес объявления
+  // Listing address
   cardElement.querySelector('.popup__text--address').textContent = offer.address;
-  // Цена жилья
-  cardElement.querySelector('.popup__text--price').textContent = `${offer.price} ₽/ночь`;
-  // Тип жилья
+  // Property price
+  cardElement.querySelector('.popup__text--price').textContent = `${offer.price} $/night`;
+  // Property type
   cardElement.querySelector('.popup__type').textContent = offer.type;
-  // Количество комнат
-  cardElement.querySelector('.popup__text--capacity').textContent = `${getRoomsNumber(offer.rooms)} для ${getGuestsNumber(offer.guests)}`;
-  // Время заезда и выезда
-  cardElement.querySelector('.popup__text--time').textContent = `Заезд после ${offer.checkin}, выезд до ${offer.checkout}`;
-  // Доступные удобства
+  // Number of rooms and guests
+  cardElement.querySelector('.popup__text--capacity').textContent = `${getRoomsNumber(offer.rooms)} for ${getGuestsNumber(offer.guests)}`;
+  // Check-in and check-out time
+  cardElement.querySelector('.popup__text--time').textContent = `Check-in after ${offer.checkin}, check-out before ${offer.checkout}`;
+  // Available features
   const featuresElement = cardElement.querySelector('.popup__features');
   fillElement(featuresElement, offer.features, (feature) => `<li class="popup__feature popup__feature--${feature}"></li>`);
-  // Описание объявления
+  // Listing description
   cardElement.querySelector('.popup__description').textContent = offer.description;
-  // Фотографии объявления
+  // Listing photos
   const photoElement = cardElement.querySelector('.popup__photos');
-  fillElement(photoElement, offer.photos, (photos) => `<img src="${photos}" class="popup__photo" width="45" height="40" alt="Фотографии жилья" />`);
-  // Аватар пользователя
+  fillElement(photoElement, offer.photos, (photos) => `<img src="${photos}" class="popup__photo" width="45" height="40" alt="Property photos" />`);
+  // User avatar
+
   const avatarUserElement = cardElement.querySelector('.popup__avatar');
   avatarUserElement.src = author.avatar;
 
