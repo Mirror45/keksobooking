@@ -30,20 +30,21 @@ const mainPinMarker = L.marker(
 
 const markerGroup = L.layerGroup().addTo(map);
 
-//Показываем координаты метки
+// Display the marker coordinates
 const setMarkerValue = () => {
   const addressElement = document.querySelector('[name="address"]');
   addressElement.value = `${defaultCoordinates.lat}, ${defaultCoordinates.lng}`;
 
-  //Отлавливаем позицию маркера при движении
+  // Track the marker's position while moving
   mainPinMarker.on('move', (evt) => {
     const { lat, lng } = evt.target.getLatLng();
-    //Отрисовываем координаты метки
+    // Render the marker coordinates
     addressElement.value = `${getFixedNumber(lat)}, ${getFixedNumber(lng)}`;
   });
 };
 
-//Создаёт кастомные метки
+
+// Creates custom markers
 const createMarker = (createTemplate) => {
   const { lat, lng } = createTemplate.location;
 
@@ -87,20 +88,20 @@ const initMap = (data) => {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
 
-  //Вставляем основной маркер на карту
+  // Add the main marker to the map
   mainPinMarker.addTo(map);
 
-  //Отрисовываем значение маркера
+  // Display the marker coordinates
   setMarkerValue();
 
-  //Рендерим стандартные данные на основе InitMap()
+  // Render default data using InitMap()
   renderMap(data);
 
-  //Рендерим данные на основе фильтра
+  // Render data based on filters
   initFilters(data);
 };
 
-//Сбрасываем параметры карты
+// Reset map parameters
 const resetMap = () => {
   map.setView(defaultCoordinates, mapZoom);
 

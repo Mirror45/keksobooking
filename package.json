@@ -2,7 +2,7 @@
   "name": "keksobooking",
   "version": "26.0.0",
   "private": true,
-  "description": "Проект «Кексобукинг»",
+  "description": "Project “Keksobooking”",
   "repository": {
     "type": "git",
     "url": "{{sshUrl}}"

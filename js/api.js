@@ -1,6 +1,6 @@
 import { showAlert } from './util.js';
 
-// Получаем данные с сервера
+// Fetch data from the server.
 const getData = (onSuccess) => {
   const getUrl = 'https://26.javascript.htmlacademy.pro/keksobooking/data';
 
@@ -12,12 +12,12 @@ const getData = (onSuccess) => {
     })
 
     .catch(() => {
-      //Ловим ошибку и показываем блок ошибки
-      showAlert('Server is not available (Сервер не доступен)');
+      // Catch errors and show the error block.
+      showAlert('Server is not available (Server is unavailable)');
     });
 };
 
-//Отправляем данные на сервер с методом 'POST'
+// Send data to the server using the 'POST' method.
 const sendData = (body, onSuccess, onError) => {
   const sendUrl = 'https://26.javascript.htmlacademy.pro/keksobooking';
 
@@ -27,11 +27,11 @@ const sendData = (body, onSuccess, onError) => {
     type: 'multipart/form-data'
   })
     .then((response) => {
-      //Проверка если ответ сервера "ок(200)"
+      // Check if the server response is "OK (200)".
       if (response.ok) {
         onSuccess();
       } else {
-        throw new Error(`Ошибка HTTP: ${response.status}`);
+        throw new Error(`HTTP error: ${response.status}`);
       }
     })
 

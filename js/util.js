@@ -1,24 +1,24 @@
-// Функция генерирует случайное число от минимума(включая) до максимума
+// The function generates a random number from minimum (inclusive) to maximum
 const getRandomInteger = (min, max) => {
   min = Math.ceil(min);
   max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
+  return Math.floor(Math.random() * (max - min + 1)) + min; // Maximum and minimum are included
 };
 
-// Функция генерирует случайные числа с плавающей точкой
+// The function generates random floating-point numbers
 function getRandomFloat(min, max, digits = 1) {
   const result = Math.random() * (max - min) + min;
 
   return +result.toFixed(digits);
 }
 
-// Функция генерирует случайный элемент массива
+// The function generates a random array element
 const getRandomArrayElement = (elements) => elements[getRandomInteger(0, elements.length - 1)];
 
-// Функция с ведущим нулём
+// The function adds a leading zero
 const getNumberWithLeadZero = (num) => `${num > 0 && num < 10 ? '0' : ''}${num}`;
 
-// Функция генерирует строку с Аватаркой
+// The function generates a string with an Avatar
 const generateAvatar = (num) => {
   const string = `img/avatars/user${getNumberWithLeadZero(num)}.png`;
 
@@ -27,10 +27,10 @@ const generateAvatar = (num) => {
 
 const getFixedNumber = (number) => number.toFixed(6);
 
-// Функция перемешивает наш массив
+// The function shuffles our array
 const shufflArray = (array) => array.sort(() => Math.random() - 0.5);
 
-// Функция заполняет элемент
+// The function fills an element
 const fillElement = (
   element,
   data = [],
@@ -43,21 +43,22 @@ const fillElement = (
   }
 };
 
-const getGuestsNumber = (guests) => guests % 10 === 1 && guests !== 11 ? `${guests} гостя` : `${guests} гостей`;
+const getGuestsNumber = (guests) => guests % 10 === 1 && guests !== 11 ? `${guests} guest` : `${guests} guests`;
 
 const getRoomsNumber = (rooms) => {
-  const reminder = rooms % 10;
+  const remainder = rooms % 10;
   if ((rooms >= 5 && rooms <= 20) || rooms === 0) {
-    return `${rooms} комнат`;
+    return `${rooms} rooms`;
   }
-  if (reminder === 1) {
-    return `${rooms} комната`;
+  if (remainder === 1) {
+    return `${rooms} room`;
   }
-  if (reminder > 1 && reminder < 5) {
-    return `${rooms} комнаты`;
+  if (remainder > 1 && remainder < 5) {
+    return `${rooms} rooms`;
   }
-  return `${rooms} комнат`;
+  return `${rooms} rooms`;
 };
+
 
 const showAlert = (message) => {
   const alertContainer = document.createElement('div');
@@ -80,7 +81,7 @@ const showAlert = (message) => {
   }, 5000);
 };
 
-//Функция Устранение дребезга
+// The function debounces
 const debounce = (callback, timer) => {
   let timeoutId;
   return (...args) => {
