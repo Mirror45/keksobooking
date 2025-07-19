@@ -41,6 +41,7 @@ The project is built with vanilla JavaScript (ES6+), Leaflet for map rendering, 
 - Rooms-to-guests validation (e.g. "100 rooms" = "not for guests")
 - Address is auto-filled and read-only, based on main pin position
 - Client-side validation enforced before submission
+- Form validation powered by Pristine.js — flexible field-level validation with custom rules and dynamic error messages.
 
 ---
 
@@ -61,6 +62,7 @@ The project is built with vanilla JavaScript (ES6+), Leaflet for map rendering, 
 | Library / Tool        | Role                                                        |
 |------------------------|-------------------------------------------------------------|
 | Leaflet               | Map, marker, and popup functionality                        |
+| Pristine.js           | Lightweight form validation library                         |
 | Custom Debounce (JS)  | Manual debounce logic for filtering performance             |
 | ESLint + Prettier     | Linting and formatting setup                                |
 
